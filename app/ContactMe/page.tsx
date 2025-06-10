@@ -4,8 +4,8 @@ import Home from "@/components/home"
 import { FaLinkedin, FaGithub, FaTwitter, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import { MdEmail, MdLocationOn } from 'react-icons/md';
 import ContactForm from "@/components/contactForm";
-import Link from "next/link";
-import { animate, motion, useMotionValue, useTransform } from "motion/react"
+
+
 
 export default function ContactMe() {
   return (

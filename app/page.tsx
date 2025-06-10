@@ -6,7 +6,7 @@ import Link from "next/link";
 import HTMLContent from "@/components/count";
 import Edu from "@/components/skill"
 
-import { animate, motion, useMotionValue, useTransform } from "motion/react"
+
 
 
 
@@ -63,7 +63,7 @@ const [isDark, setIsDark] = useState(false);
       </header>
       <div><Scroll/></div>
 
-      {/* Hero Section */}
+      {}
       <section id="home" className="pt-32 pb-12 px-6 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         <div className="space-y-4">
           <h1 className="text-5xl font-extrabold text-transparent bg-clip-text animate-pulse bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">

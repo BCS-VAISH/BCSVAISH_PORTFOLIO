@@ -2,7 +2,7 @@
 
 import {Home} from 'lucide-react';
 import Link from "next/link";
-import { motion} from "motion/react"
+
 
 export default function home_button() {
   return (

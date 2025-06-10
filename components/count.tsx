@@ -1,4 +1,4 @@
-// components/HTMLContent.tsx
+
 "use client"
 
 import { animate, motion, useMotionValue, useTransform } from "motion/react"
@@ -9,7 +9,7 @@ export default function HTMLContent() {
   const rounded = useTransform(() => Math.round(count.get()))
 
   useEffect(() => {
-    const controls = animate(count, 8, { duration: 5 }) // Animate to 4 in 3s
+    const controls = animate(count, 8, { duration: 5 }) 
     return () => controls.stop()
   }, [])
 
@@ -22,6 +22,6 @@ export default function HTMLContent() {
 
 const text = {
   fontSize: 32,
-  color: "#ec4899", // Tailwind pink-500
+  color: "#ec4899", 
   fontWeight: "bold",
 }
