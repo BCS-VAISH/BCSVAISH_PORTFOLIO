@@ -31,8 +31,8 @@ export default function Home() {
           <h2 className="text-2xl text-yellow-600 dark:text-yellow-400 font-bold">
             Bachelor of Technology in Computer Science and Engineering
           </h2>
-          <Link href="/ContactMe" className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-full shadow-lg hover:opacity-90 transition">
-            Contact Me <span className="ml-2">📨</span>
+          <Link href="mailto:bcsvaish0000@gmail.com" className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-full shadow-lg hover:opacity-90 transition">
+            Hire Me <span className="ml-2">📨</span>
           </Link>
         </div>
 
