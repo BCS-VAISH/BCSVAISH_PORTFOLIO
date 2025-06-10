@@ -1,27 +1,15 @@
 'use client';
-import Scroll from '@/components/scroll'
-import { useState, useEffect } from "react";
+import Scroll from '@/components/scroll';
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import HTMLContent from "@/components/count";
-import Edu from "@/components/skill"
-
-
-
-
-
-
+import Edu from "@/components/skill";
 
 export default function Home() {
-  
- 
-
-
-
-const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Add or remove 'dark' class on <html>
     const root = document.documentElement;
     if (isDark) {
       root.classList.add('dark');
@@ -31,48 +19,20 @@ const [isDark, setIsDark] = useState(false);
   }, [isDark]);
 
   return (
-    <main className="min-h-screen font-sans text-gray-800 dark:text-white bg-gradient-to-br from-blue-50 via-pink-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Header */}
-      <header className="w-full fixed top-0 left-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md">
-        <nav className="max-w-screen-xl mx-auto flex justify-between items-center py-4 px-6">
+    <main className="min-h-screen font-sans text-gray-800 dark:text-white bg-gradient-to-br from-blue-50 via-pink-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-6">
+      <Scroll />
 
-          <Link href="#" className="text-2xl font-extrabold text-blue-700 dark:text-blue-300">
-            Baskaran <span className="text-pink-500 dark:text-pink-400">Vaishnavan</span>
-          </Link>
-          <ul className="hidden md:flex space-x-6 text-sm font-semibold">
-            <li><Link href="#home" className="hover:text-blue-600 dark:hover:text-blue-400">Home</Link></li>
-            <li><Link href="#about" className="hover:text-pink-600 dark:hover:text-pink-400">About</Link></li>
-            <li><Link href="#skills" className="hover:text-pink-600 dark:hover:text-pink-400">Skills</Link></li>
-            <li><Link href="/Qualification" className="hover:text-yellow-600 dark:hover:text-yellow-400">Qualification</Link></li>
-            <li><Link href="/Project" className="hover:text-green-600 dark:hover:text-green-400">Projects</Link></li>
-            <li><Link href="/Awards" className="hover:text-purple-600 dark:hover:text-purple-400">Awards</Link></li>
-            <li><Link href="/ContactMe" className="hover:text-red-600 dark:hover:text-red-400">Contact Me</Link></li>
-          </ul>
-       
-      <button
-        onClick={() => setIsDark(!isDark)}
-        className="mb-6 px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 dark:bg-yellow-400 dark:text-black"
-      >
-        {isDark ? '🌙' : '☀️'}
-      </button>
-   
-
-
-
-        </nav>
-      </header>
-      <div><Scroll/></div>
-
-      {}
-      <section id="home" className="pt-32 pb-12 px-6 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+      {/* Hero Section */}
+      <section id="home" className="pt-10 pb-12 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         <div className="space-y-4">
           <h1 className="text-5xl font-extrabold text-transparent bg-clip-text animate-pulse bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
             Hey, I'm Vaishnavan
           </h1>
-          <h2 className="text-2xl text-yellow-600 dark:text-yellow-400 font-bold">Bachelor of Technology in Computer Science and Engineering</h2>
+          <h2 className="text-2xl text-yellow-600 dark:text-yellow-400 font-bold">
+            Bachelor of Technology in Computer Science and Engineering
+          </h2>
           <Link href="/ContactMe" className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-full shadow-lg hover:opacity-90 transition">
-            Contact Me
-            <span className="ml-2">📨</span>
+            Contact Me <span className="ml-2">📨</span>
           </Link>
         </div>
 
@@ -90,7 +50,7 @@ const [isDark, setIsDark] = useState(false);
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 px-6 max-w-screen-xl mx-auto">
+      <section id="about" className="py-16 max-w-screen-xl mx-auto">
         <h2 className="text-4xl font-bold text-center text-purple-700 dark:text-purple-300 mb-2">About Me</h2>
         <p className="text-center text-base text-gray-600 dark:text-gray-300 mb-10">My Introduction</p>
         <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -104,21 +64,18 @@ const [isDark, setIsDark] = useState(false);
             />
           </div>
           <div>
-
-           
             <p className="mb-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
               I am an undergraduate in Computer Science and Engineering at NIT Durgapur, India, <span className="text-blue-700 dark:text-blue-400 font-semibold">proficient in</span> 
-              <span className="text-purple-600 dark:text-purple-400"> C, C++,
-SQL, Python, Java, HTML, CSS, and JavaScript</span>,
-               With a strong foundation in software development and problem-solving, I
-consistently deliver high-quality, scalable solutions within deadlines. My passion lies in developing efficient and innovative
-technologies that solve real-world challenges.I am eager to apply my skills and knowledge in a dynamic, forward-thinking
+              <span className="text-purple-600 dark:text-purple-400"> C, C++, SQL, Python, Java, HTML, CSS, and JavaScript</span>. With a strong foundation in software development and problem-solving, I
+              consistently deliver high-quality, scalable solutions within deadlines. My passion lies in developing efficient and innovative
+              technologies that solve real-world challenges. I am eager to apply my skills and knowledge in a dynamic, forward-thinking environment.
             </p>
             <div className="flex space-x-8 text-center mb-6">
               <div>
                 <HTMLContent />
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  <Link href="/Awards" className="hover:text-purple-600 dark:hover:text-purple-400">Completed certifications</Link></p>
+                  <Link href="/Awards" className="hover:text-purple-600 dark:hover:text-purple-400">Completed certifications</Link>
+                </p>
               </div>
             </div>
             <Link href="/Vaish_Resume.pdf" download className="inline-block px-5 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full shadow-md hover:opacity-90">
@@ -128,9 +85,9 @@ technologies that solve real-world challenges.I am eager to apply my skills and 
         </div>
       </section>
 
-      <section>
-        <Edu/>
-        
+      {/* Skills & More */}
+      <section id="skills" className="py-16 max-w-screen-xl mx-auto">
+        <Edu />
       </section>
     </main>
   );

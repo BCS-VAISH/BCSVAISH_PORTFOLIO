@@ -1,6 +1,5 @@
 'use client';
 
-import Home from "@/components/home"
 import { FaLinkedin, FaGithub, FaTwitter, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import { MdEmail, MdLocationOn } from 'react-icons/md';
 import ContactForm from "@/components/contactForm";
@@ -42,7 +41,7 @@ export default function ContactMe() {
               </a>
             </div>
 
-            <div><Home/></div>
+           
     </main>
   );
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,14 +26,42 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans flex flex-col min-h-screen`}>
-        <main className="flex-grow">{children}</main>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans flex min-h-screen bg-gray-100 dark:bg-gray-900`}>
+        {/* Sidebar */}
+        <aside className="w-64 min-h-screen bg-gradient-to-br from-gray-800 to-gray-900 text-white p-6 shadow-xl flex flex-col justify-between">
+          <div>
+            <h1 className="text-2xl font-extrabold text-center text-yellow-400 mb-10">
+              Baskaran Vaishnavan
+            </h1>
+            <nav className="flex flex-col space-y-4">
+              {[
+                { href: "/", label: "About Me" },
+             
+                { href: "/Qualification", label: "Qualification" },
+                { href: "/Project", label: "Projects" },
+                { href: "/Awards", label: "Awards" },
+                { href: "/ContactMe", label: "Contact Me" },
+              ].map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-lg md:text-xl font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 px-4 py-3 rounded-xl shadow-md text-center transition duration-300"
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-        <footer className="bg-gray-900 text-white text-center py-4 mt-10">
-          <p className="text-sm">
-            © {new Date().getFullYear()} BCSVAISH. Built with ❤️ by Vaishnavan.
-          </p>
-        </footer>
+          <footer className="text-sm text-center text-gray-400 mt-10">
+            © {new Date().getFullYear()} BCSVAISH.
+            <br />
+            Built with ❤️ by Vaishnavan
+          </footer>
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1 overflow-y-auto">{children}</main>
       </body>
     </html>
   );
