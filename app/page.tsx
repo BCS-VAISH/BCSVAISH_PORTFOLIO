@@ -1,103 +1,137 @@
+'use client';
+import Scroll from '@/components/scroll'
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import HTMLContent from "@/components/count";
+import Edu from "@/components/skill"
+
+import { animate, motion, useMotionValue, useTransform } from "motion/react"
+
+
+
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  
+ 
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+
+const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Add or remove 'dark' class on <html>
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [isDark]);
+
+  return (
+    <main className="min-h-screen font-sans text-gray-800 dark:text-white bg-gradient-to-br from-blue-50 via-pink-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      {/* Header */}
+      <header className="w-full fixed top-0 left-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md">
+        <nav className="max-w-screen-xl mx-auto flex justify-between items-center py-4 px-6">
+
+          <Link href="#" className="text-2xl font-extrabold text-blue-700 dark:text-blue-300">
+            Baskaran <span className="text-pink-500 dark:text-pink-400">Vaishnavan</span>
+          </Link>
+          <ul className="hidden md:flex space-x-6 text-sm font-semibold">
+            <li><Link href="#home" className="hover:text-blue-600 dark:hover:text-blue-400">Home</Link></li>
+            <li><Link href="#about" className="hover:text-pink-600 dark:hover:text-pink-400">About</Link></li>
+            <li><Link href="#skills" className="hover:text-pink-600 dark:hover:text-pink-400">Skills</Link></li>
+            <li><Link href="/Qualification" className="hover:text-yellow-600 dark:hover:text-yellow-400">Qualification</Link></li>
+            <li><Link href="/Project" className="hover:text-green-600 dark:hover:text-green-400">Projects</Link></li>
+            <li><Link href="/Awards" className="hover:text-purple-600 dark:hover:text-purple-400">Awards</Link></li>
+            <li><Link href="/ContactMe" className="hover:text-red-600 dark:hover:text-red-400">Contact Me</Link></li>
+          </ul>
+       
+      <button
+        onClick={() => setIsDark(!isDark)}
+        className="mb-6 px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 dark:bg-yellow-400 dark:text-black"
+      >
+        {isDark ? '🌙' : '☀️'}
+      </button>
+   
+
+
+
+        </nav>
+      </header>
+      <div><Scroll/></div>
+
+      {/* Hero Section */}
+      <section id="home" className="pt-32 pb-12 px-6 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <div className="space-y-4">
+          <h1 className="text-5xl font-extrabold text-transparent bg-clip-text animate-pulse bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+            Hey, I'm Vaishnavan
+          </h1>
+          <h2 className="text-2xl text-yellow-600 dark:text-yellow-400 font-bold">Bachelor of Technology in Computer Science and Engineering</h2>
+          <Link href="/ContactMe" className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-full shadow-lg hover:opacity-90 transition">
+            Contact Me
+            <span className="ml-2">📨</span>
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="relative w-full h-[400px] bg-gradient-to-tr from-pink-100 via-white to-blue-100 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700 rounded-3xl shadow-inner flex justify-center items-center">
+          <div className="relative w-full h-full">
+            <Image
+              src="/vaish.jpg"
+              alt="Vaishnavan Image"
+              className="object-cover border-4 border-pink-300 shadow-xl"
+              fill
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 px-6 max-w-screen-xl mx-auto">
+        <h2 className="text-4xl font-bold text-center text-purple-700 dark:text-purple-300 mb-2">About Me</h2>
+        <p className="text-center text-base text-gray-600 dark:text-gray-300 mb-10">My Introduction</p>
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="w-full h-[400px] bg-gradient-to-r from-purple-100 via-pink-100 to-yellow-100 dark:from-purple-800 dark:via-pink-800 dark:to-yellow-700 p-2 rounded-2xl shadow-lg">
+            <Image
+              src="/Vaish_1.jpg"
+              alt="About"
+              width={600}
+              height={400}
+              className="w-full h-full object-cover rounded-xl"
+            />
+          </div>
+          <div>
+
+           
+            <p className="mb-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              I am an undergraduate in Computer Science and Engineering at NIT Durgapur, India, <span className="text-blue-700 dark:text-blue-400 font-semibold">proficient in</span> 
+              <span className="text-purple-600 dark:text-purple-400"> C, C++,
+SQL, Python, Java, HTML, CSS, and JavaScript</span>,
+               With a strong foundation in software development and problem-solving, I
+consistently deliver high-quality, scalable solutions within deadlines. My passion lies in developing efficient and innovative
+technologies that solve real-world challenges.I am eager to apply my skills and knowledge in a dynamic, forward-thinking
+            </p>
+            <div className="flex space-x-8 text-center mb-6">
+              <div>
+                <HTMLContent />
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <Link href="/Awards" className="hover:text-purple-600 dark:hover:text-purple-400">Completed certifications</Link></p>
+              </div>
+            </div>
+            <Link href="/Vaish_Resume.pdf" download className="inline-block px-5 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full shadow-md hover:opacity-90">
+              Click here & get my CV
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <Edu/>
+        
+      </section>
+    </main>
   );
 }
